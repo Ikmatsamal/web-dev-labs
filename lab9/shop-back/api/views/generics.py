@@ -1,5 +1,6 @@
 from rest_framework.views import APIView  
 from rest_framework import generics
+from rest_framework.response import Response
 from api.models import Product, Category
 from api.serializers import ProductSerializer, CategorySerializer
 

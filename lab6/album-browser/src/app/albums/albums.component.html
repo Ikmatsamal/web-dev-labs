@@ -1,15 +1,16 @@
 <h2>Albums</h2>
 
-<input [(ngModel)]="newTitle" placeholder="New album title">
-<button (click)="create()">Add</button>
-
-<div *ngIf="loading">Loading...</div>
-
+<div class="toolbar">
+  <input [(ngModel)]="newTitle" placeholder="New album title">
+  <button class="btn primary" (click)="create()">Add</button>
+  <button class="btn primary" (click)="sortAsc()">A–Z</button>
+  <button class="btn primary" (click)="sortDesc()">Z–A</button>
+</div>
 <ul *ngIf="!loading">
   <li *ngFor="let album of albums">
     <a [routerLink]="['/albums', album.id]">
       {{ album.id }} - {{ album.title }}
     </a>
-    <button (click)="delete(album.id)">Delete</button>
+    <button class="delete" (click)="delete(album.id)">Delete</button>
   </li>
 </ul>

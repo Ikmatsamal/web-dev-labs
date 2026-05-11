@@ -24,6 +24,14 @@
     <button class="secondary-btn" (click)="share()">
   Share WhatsApp
 </button>
-    <button class="danger-btn" (click)="remove()">Delete</button>
+    
+<button 
+  class="danger-btn"
+  [disabled]="product().likes >= 10"
+  [class.locked]="product().likes >= 10"
+  (click)="remove()">
+  Delete
+</button>
+
   </div>
 </div>

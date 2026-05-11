@@ -1,19 +1,18 @@
 <h2>Album Detail</h2>
 
-
-<p *ngIf="!album">Loading album...</p>
-
-
-<div *ngIf="album">
+<ng-container *ngIf="album; else loadingTpl">
   <p><b>ID:</b> {{ album.id }}</p>
   <p><b>User ID:</b> {{ album.userId }}</p>
 
-  <input [(ngModel)]="album.title">
-  <button (click)="save()">Save</button>
+  <input [(ngModel)]="album.title" />
 
-  <button [routerLink]="['/albums', album.id, 'photos']">
+  <button class="save" (click)="save()">Save</button>
+  <button class="primary" [routerLink]="['/albums', album.id, 'photos']">
     View Photos
   </button>
+  <button class="back" routerLink="/albums">Back</button>
+</ng-container>
 
-  <button routerLink="/albums">Back</button>
-</div>
+<ng-template #loadingTpl>
+  <p>Loading album...</p>
+</ng-template>

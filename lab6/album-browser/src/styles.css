@@ -61,3 +61,79 @@ input {
   border: 1px solid #cbd5e1;
   margin-right: 10px;
 }
+
+button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: 600;
+  opacity: 1 !important; 
+}
+
+button:hover {
+  filter: brightness(0.95);
+}
+
+
+button.primary,
+button.save,
+button.add {
+  background: #2563eb;
+  color: #fff;
+}
+
+
+button.delete {
+  background: #df5353;
+  color: #fff;
+}
+
+
+button.secondary,
+button.back {
+  background: #e5e7eb;
+  color: #111827;
+  border-color: #cbd5e1;
+}
+/* Top toolbar */
+.toolbar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 12px 0 18px;
+}
+
+.toolbar input {
+  min-width: 260px;
+}
+
+/* Unified button style */
+.btn {
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: 600;
+  opacity: 1 !important;
+}
+
+.btn.primary {
+  background: #2563eb;
+  color: #fff;
+}
+
+.btn.primary:hover {
+  filter: brightness(0.95);
+}
+
+/* Delete button unified size */
+.btn.delete {
+  background: #dc2626;
+  color: #fff;
+}
+
+.btn.delete:hover {
+  filter: brightness(0.95);
+}

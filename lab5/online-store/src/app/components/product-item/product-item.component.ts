@@ -15,16 +15,24 @@ export class ProductItemComponent {
     this.product().likes++;
   }
 
-  remove() {
-    if (confirm('Удалить товар?')) {
-      this.delete.emit(this.product().id);
-    }
-  }
+  
+  
 share() {
   window.open(`https://wa.me/?text=${this.product().link}`);
 }
   
   openKaspi() {
   window.open(this.product().link, '_blank');
+}
+//
+   remove() {
+  if (this.product().likes >= 10) {
+    alert('Товар не может быть удален');
+    return;
+  }
+
+  if (confirm('Удалить товар?')) {
+    this.delete.emit(this.product().id);
+  }
 }
 }

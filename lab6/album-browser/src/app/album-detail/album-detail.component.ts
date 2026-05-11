@@ -23,20 +23,18 @@ export class AlbumDetailComponent implements OnInit {
     private albumService: AlbumService
   ) {}
 
- ngOnInit(): void {
-  this.route.paramMap.subscribe(params => {
-    const id = Number(params.get('id'));
+ 
 
-    this.album = null; 
-
-    this.albumService.getAlbum(id).subscribe(data => {
-      this.album = data;
-    });
+ngOnInit() {
+  const id = Number(this.route.snapshot.paramMap.get('id'));
+  this.album = null; 
+  this.albumService.getAlbum(id).subscribe(data => {
+    this.album = data;
   });
 }
-save() {
-  if (!this.album) return;
 
+save() {
+  if (!this.album) return; 
   this.albumService.updateAlbum(this.album).subscribe();
 }
 

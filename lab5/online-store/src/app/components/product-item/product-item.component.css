@@ -113,3 +113,9 @@
   gap: 25px;
   margin-top: 30px;
 }
+
+.danger-btn.locked {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}

@@ -22,7 +22,18 @@ export class AlbumsComponent implements OnInit {
   newTitle = '';
 
   ngOnInit(): void {
-  this.loadAlbums();
+  this.loading = true;
+
+  this.albumService.getAlbums().subscribe({
+    next: (data) => {
+      this.albums = data;
+      this.loading = false;
+    },
+    error: (err) => {
+      console.error(err);
+      this.loading = false;
+    }
+  });
 }
 
 loadAlbums() {
@@ -50,5 +61,16 @@ loadAlbums() {
     this.albums.unshift(res);
     this.newTitle = '';
   });
+}
+sortAsc() {
+  this.albums = [...this.albums].sort((a, b) =>
+    a.title.localeCompare(b.title, undefined, { sensitivity: 'base' })
+  );
+}
+
+sortDesc() {
+  this.albums = [...this.albums].sort((a, b) =>
+    b.title.localeCompare(a.title, undefined, { sensitivity: 'base' })
+  );
 }
 }
